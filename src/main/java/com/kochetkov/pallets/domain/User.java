@@ -1,11 +1,15 @@
 package com.kochetkov.pallets.domain;
 
 import com.kochetkov.pallets.domain.enums.Role;
-import jakarta.persistence.*;
+
+import lombok.Data;
+
+import javax.persistence.*;
 
 
 @Entity
 @Table(name = "users") // Тк user занят в postgre
+@Data
 public class User {
 
     @Id
