@@ -15,9 +15,9 @@ import java.io.Serializable;
 public class PaletteColorKey implements Serializable {
 
     @Column(name = "palette_id")
-    long palette_id;
+    long paletteId;
 
     @Column(name = "color_id")
-    long color_id;
+    long colorId;
 
 }

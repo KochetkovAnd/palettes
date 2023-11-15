@@ -34,10 +34,10 @@ public class Palette {
             joinColumns = @JoinColumn(name = "palette_id"),
             inverseJoinColumns = @JoinColumn(name = "tag_id")
     )
-    List<Tag> tags;
+    private List<Tag> tags;
 
     @OneToMany
     @JoinColumn(name = "palette_id")
-    List<PaletteColor> paletteColors;
+    private List<PaletteColor> paletteColors;
 
 }

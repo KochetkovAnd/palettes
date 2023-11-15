@@ -15,7 +15,7 @@ public class Color {
     private long id;
 
     @Column(name = "hex")
-    private String name;
+    private String hex;
 
     @Column(name = "description")
     private String description;
