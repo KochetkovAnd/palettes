@@ -12,6 +12,7 @@ import java.util.List;
 public class PaletteDTO {
     private long id;
     private String name;
+    private boolean isPrivate;
     private String modelType;
     private String theme;
     private User creator;

@@ -18,6 +18,9 @@ public class Palette {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "isPrivate")
+    private boolean isPrivate;
+
     @Column(name = "model_type")
     private String modelType;
 
