@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface PaletteMapper {
     PaletteMapper PALETTE_MAPPER = Mappers.getMapper(PaletteMapper.class);
-    @Mapping(target = "password", ignore = true)
+
     Palette toEntity(PaletteDTO paletteDTO);
     PaletteDTO toDTO(Palette palette);
     List<Palette> allToEntity(List<PaletteDTO> paletteDTOList);

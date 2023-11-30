@@ -14,7 +14,6 @@ public class PaletteDTO {
     private String name;
     private boolean isPrivate;
     private String modelType;
-    private String theme;
     private User creator;
     private List<Tag> tags;
     private List<PaletteColor> paletteColors;

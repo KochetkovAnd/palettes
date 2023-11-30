@@ -12,7 +12,7 @@ import java.util.List;
 public interface UserMapper {
     UserMapper USER_MAPPER = Mappers.getMapper(UserMapper.class);
 
-    @Mapping(target = "password", ignore = true)
+//    @Mapping(target = "password", ignore = true)
     User toEntity(UserDTO userDTO);
     UserDTO toDTO(User user);
     List<User> allToEntity(List<UserDTO> userDTOList);

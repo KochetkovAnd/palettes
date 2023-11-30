@@ -56,7 +56,7 @@ public class AuthenticationRestController {
     }
 
 
-    @PostMapping("register")
+    @PostMapping("/register")
     public UserDTO register(@RequestBody RegisterRequestDTO registerRequestDTO) {
         if (!userRepository.findByUsername(registerRequestDTO.getUsername()).isPresent()) {
             User user = new User();

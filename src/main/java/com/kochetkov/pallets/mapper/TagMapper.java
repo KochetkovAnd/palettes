@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface TagMapper {
     TagMapper TAG_MAPPER = Mappers.getMapper(TagMapper.class);
-    @Mapping(target = "password", ignore = true)
+
     Tag toEntity(TagDTO tagDTO);
     TagDTO toDTO(Tag tag);
     List<Tag> allToEntity(List<TagDTO> tagDTOList);

@@ -24,9 +24,6 @@ public class Palette {
     @Column(name = "model_type")
     private String modelType;
 
-    @Column(name = "theme")
-    private String theme;
-
     @ManyToOne
     @JoinColumn(name = "creator_id")
     private User creator;

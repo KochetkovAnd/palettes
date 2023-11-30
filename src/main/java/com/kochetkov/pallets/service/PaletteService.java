@@ -25,10 +25,10 @@ public class PaletteService {
         return allToDTO(paletteRepository.findAll());
     }
 
-    @PreAuthorize("hasAuthority('palette:watch')")
-    public List<PaletteDTO> getAllPublic() {
-        return allToDTO(paletteRepository.getAllByPrivateIsFalse());
-    }
+//    @PreAuthorize("hasAuthority('palette:watch')")
+//    public List<PaletteDTO> getAllPublic() {
+//        return allToDTO(paletteRepository.getAllByPrivateIsFalse());
+//    }
 
     @PreAuthorize("hasAuthority('palette:watch')")
     public List<PaletteDTO> getAllByCurrentUser() {

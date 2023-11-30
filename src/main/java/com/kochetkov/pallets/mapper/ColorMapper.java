@@ -11,7 +11,7 @@ import java.util.List;
 @Mapper
 public interface ColorMapper {
     ColorMapper COLOR_MAPPER = Mappers.getMapper(ColorMapper.class);
-    @Mapping(target = "password", ignore = true)
+
     Color toEntity(ColorDTO colorDTO);
     ColorDTO toDTO(Color color);
     List<Color> allToEntity(List<ColorDTO> colorDTOList);

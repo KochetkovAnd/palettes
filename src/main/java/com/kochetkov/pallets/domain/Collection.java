@@ -26,6 +26,6 @@ public class Collection {
     private User editor;
 
     @OneToMany
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "collection_id")
     private List<Palette> palettes;
 }
