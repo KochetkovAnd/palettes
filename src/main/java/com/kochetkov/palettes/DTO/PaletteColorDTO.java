@@ -8,6 +8,7 @@ import lombok.Data;
 @Data
 public class PaletteColorDTO {
     private PaletteColorKey id;
+    private Palette palette;
     private Color color;
     private String colorRole;
 }

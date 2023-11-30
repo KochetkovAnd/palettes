@@ -15,12 +15,6 @@ import java.util.List;
 public class PaletteController {
 
     private final PaletteService paletteService;
-
-//    @GetMapping("")
-//    public List<PaletteDTO> getAll() {
-//        return paletteService.getAllPublic();
-//    }
-
     @GetMapping("/your_palettes")
     public List<PaletteDTO> getAllByCurrentUser() {
         return paletteService.getAllByCurrentUser();
