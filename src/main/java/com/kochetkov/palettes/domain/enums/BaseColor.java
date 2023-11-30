@@ -7,6 +7,7 @@ public enum BaseColor {
     RED("red"),
     GREEN("green"),
     AQUA("aqua"),
+    BLUE("blue"),
     VIOLET("violet"),
     PINK("pink"),
     BROWN("brown"),

@@ -12,11 +12,6 @@ public class PaletteColor {
     private PaletteColorKey id;
 
     @ManyToOne
-    @MapsId("paletteId")
-    @JoinColumn(name = "palette_id")
-    private Palette palette;
-
-    @ManyToOne
     @MapsId("colorId")
     @JoinColumn(name = "color_id")
     private Color color;

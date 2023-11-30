@@ -34,7 +34,7 @@ public class PaletteColorService {
         return paletteColorDTO;
     }
     private PaletteColorDTO update(PaletteColorDTO paletteColorDTO) {
-        paletteColorDTO.setId(new PaletteColorKey(paletteColorDTO.getPalette().getId(), paletteColorDTO.getColor().getId()));
+//        paletteColorDTO.setId(new PaletteColorKey(paletteColorDTO.getPalette().getId(), paletteColorDTO.getColor().getId()));
         return toDTO(paletteColorRepository.save(toEntity(paletteColorDTO)));
     }
     public boolean deleteById(Long id) {
