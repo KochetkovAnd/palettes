@@ -1,7 +1,9 @@
 package com.kochetkov.pallets.domain.enums;
 
 public enum Permission {
-    CREATE_PALLETS("create_pallets"),
+    WATCH_PALETTES("palette:watch"),
+    CREATE_PALETTES("palette:create"),
+
     CREATE_COLLECTIONS("create_pallets");
 
     private final String permission;

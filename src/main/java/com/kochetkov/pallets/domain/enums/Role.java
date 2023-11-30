@@ -9,10 +9,12 @@ import java.util.stream.Collectors;
 
 public enum Role {
     USER(new HashSet<Permission>(){{
-        add((Permission.CREATE_PALLETS));
+        add((Permission.WATCH_PALETTES));
+        add((Permission.CREATE_PALETTES));
     }}),
     EDITOR(new HashSet<Permission>(){{
-        add((Permission.CREATE_PALLETS));
+        add((Permission.WATCH_PALETTES));
+        add((Permission.CREATE_PALETTES));
         add((Permission.CREATE_COLLECTIONS));
     }});
 

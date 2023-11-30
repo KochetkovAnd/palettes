@@ -7,6 +7,7 @@ import com.kochetkov.pallets.exeption.ResourceNotFoundException;
 import com.kochetkov.pallets.mapper.PaletteMapper;
 import com.kochetkov.pallets.repository.PaletteRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,10 +16,23 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class PaletteService {
+
     private final PaletteRepository paletteRepository;
+
+    private final UserService userService;
 
     private List<PaletteDTO> getAll() {
         return allToDTO(paletteRepository.findAll());
+    }
+
+    @PreAuthorize("hasAuthority('palette:watch')")
+    public List<PaletteDTO> getAllPublic() {
+        return allToDTO(paletteRepository.getAllByPrivateIsFalse());
+    }
+
+    @PreAuthorize("hasAuthority('palette:watch')")
+    public List<PaletteDTO> getAllByCurrentUser() {
+        return allToDTO(paletteRepository.getAllByCreator(userService.getCurrentUser()));
     }
 
     private PaletteDTO getById(Long id) {
