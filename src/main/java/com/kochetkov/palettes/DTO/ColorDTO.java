@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class ColorDTO {
-    private long id;
     private String hex;
     private BaseColor baseColor;
     private String description;

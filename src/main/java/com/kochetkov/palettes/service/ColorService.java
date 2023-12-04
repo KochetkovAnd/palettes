@@ -20,29 +20,12 @@ public class ColorService {
     private List<ColorDTO> getAll() {
         return allToDTO(colorRepository.findAll());
     }
-
-    private ColorDTO getById(Long id) {
-        Optional<Color> color = colorRepository.findById(id);
-        if (color.isPresent()) {
-            return toDTO(color.get());
-        }
-        throw new ResourceNotFoundException("Color with id = "+ id + " not found", "");
-    }
-
     private ColorDTO create(ColorDTO colorDTO) {
         if (!colorRepository.findByHex(colorDTO.getHex()).isPresent()) {
             colorRepository.save(toEntity(colorDTO));
             return toDTO(colorRepository.findByHex(colorDTO.getHex()).get());
         }
-        throw new AlreadyExistException("Color with Hex = " + colorDTO.getHex() + " already exist", "");
-    }
-
-    private ColorDTO update(ColorDTO colorDTO) {
-        if (!colorRepository.findById(colorDTO.getId()).isPresent()) {
-            colorRepository.save(toEntity(colorDTO));
-            return toDTO(colorRepository.getById(colorDTO.getId()));
-        }
-        throw new ResourceNotFoundException("Color with id = "+ colorDTO.getId() + " not found", "");
+       throw new AlreadyExistException("Color with Hex = " + colorDTO.getHex() + " already exist", "");
     }
 
     public boolean deleteById(Long id) {

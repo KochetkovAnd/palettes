@@ -11,10 +11,6 @@ import javax.persistence.*;
 public class Color {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private long id;
-
     @Column(name = "hex")
     private String hex;
 

@@ -1,6 +1,6 @@
 package com.kochetkov.palettes.DTO;
 
-import com.kochetkov.palettes.domain.PaletteColor;
+import com.kochetkov.palettes.domain.ColorInPalette;
 import com.kochetkov.palettes.domain.Tag;
 import com.kochetkov.palettes.domain.User;
 import lombok.Data;
@@ -16,5 +16,5 @@ public class PaletteDTO {
     private String modelType;
     private User creator;
     private List<Tag> tags;
-    private List<PaletteColor> paletteColors;
+    private List<ColorInPalette> ColorInPalettes;
 }

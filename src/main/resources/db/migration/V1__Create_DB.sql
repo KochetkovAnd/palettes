@@ -8,11 +8,10 @@ create table collection
 );
 create table color
 (
-    id          bigserial not null,
+    hex         varchar(255) not null,
     base_color  varchar(255),
     description varchar(255),
-    hex         varchar(255),
-    primary key (id)
+    primary key (hex)
 );
 create table palette
 (
@@ -26,22 +25,22 @@ create table palette
 );
 create table palette_color
 (
-    color_id   int8 not null,
-    palette_id int8 not null,
+    id         bigserial not null,
     color_role varchar(255),
-    primary key (color_id, palette_id)
+    hex        varchar(255),
+    palette_id int8,
+    primary key (id)
 );
 create table palette_tag
 (
-    palette_id int8 not null,
-    tag_id     int8 not null
+    palette_id int8         not null,
+    tag_name   varchar(255) not null
 );
 create table tag
 (
-    id          bigserial not null,
+    name        varchar(255) not null,
     description varchar(255),
-    name        varchar(255),
-    primary key (id)
+    primary key (name)
 );
 create table users
 (
@@ -58,10 +57,8 @@ alter table palette
 alter table palette
     add constraint FKenecknf3wyke36a3nlq9jp57n foreign key (collection_id) references collection;
 alter table palette_color
-    add constraint FKb9i0crxrg9gmqprrs7bstag3n foreign key (color_id) references color;
-alter table palette_color
     add constraint FKmjly33cw8qako5qjr6b44vfmm foreign key (palette_id) references palette;
 alter table palette_tag
-    add constraint FKnj716nea27e8dvbwlff8fhk61 foreign key (tag_id) references tag;
+    add constraint FKpwoy50el5g9lxw4shmhr0xm9n foreign key (tag_name) references tag;
 alter table palette_tag
     add constraint FKsqcth5101n9a4j821piqf4tgd foreign key (palette_id) references palette;

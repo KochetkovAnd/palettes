@@ -32,12 +32,12 @@ public class Palette {
     @JoinTable (
             name = "palette_tag",
             joinColumns = @JoinColumn(name = "palette_id"),
-            inverseJoinColumns = @JoinColumn(name = "tag_id")
+            inverseJoinColumns = @JoinColumn(name = "tag_name")
     )
     private List<Tag> tags;
 
     @OneToMany
     @JoinColumn(name = "palette_id")
-    private List<PaletteColor> paletteColors;
+    private List<ColorInPalette> colorInPalettes;
 
 }
