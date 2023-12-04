@@ -19,4 +19,9 @@ public class PaletteController {
     public List<PaletteDTO> getAllByCurrentUser() {
         return paletteService.getAllByCurrentUser();
     }
+
+    @GetMapping("/available_palettes")
+    public List<PaletteDTO> getAllAvailablePalettes() {
+        return paletteService.getAllAvailablePalettes();
+    }
 }

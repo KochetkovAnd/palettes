@@ -16,6 +16,11 @@ public enum Role {
         add((Permission.WATCH_PALETTES));
         add((Permission.CREATE_PALETTES));
         add((Permission.CREATE_COLLECTIONS));
+    }}),
+    ADMIN(new HashSet<Permission>(){{
+        add((Permission.WATCH_PALETTES));
+        add((Permission.CREATE_PALETTES));
+        add((Permission.CREATE_COLLECTIONS));
     }});
 
 

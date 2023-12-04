@@ -25,16 +25,6 @@ public class PaletteService {
         return allToDTO(paletteRepository.findAll());
     }
 
-//    @PreAuthorize("hasAuthority('palette:watch')")
-//    public List<PaletteDTO> getAllPublic() {
-//        return allToDTO(paletteRepository.getAllByPrivateIsFalse());
-//    }
-
-    @PreAuthorize("hasAuthority('palette:watch')")
-    public List<PaletteDTO> getAllByCurrentUser() {
-        return allToDTO(paletteRepository.getAllByCreator(userService.getCurrentUser()));
-    }
-
     private PaletteDTO getById(Long id) {
         Optional<Palette> palette = paletteRepository.findById(id);
         if (palette.isPresent()) {
@@ -67,6 +57,20 @@ public class PaletteService {
         paletteRepository.delete(palette.get());
         return true;
     }
+
+
+    @PreAuthorize("hasAuthority('palette:watch')")
+    public List<PaletteDTO> getAllByCurrentUser() {
+        return allToDTO(paletteRepository.getAllByCreator(userService.getCurrentUser()));
+    }
+
+    @PreAuthorize("hasAuthority('palette:watch')")
+    public List<PaletteDTO> getAllAvailablePalettes() {
+        return allToDTO(paletteRepository.getAllByIsPrivate(false));
+    }
+
+
+
 
     //TODO Возможно тут надо отлавливать если пытаешься удалить связанные обьекты
 

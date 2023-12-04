@@ -14,14 +14,12 @@ public class PaletteColor {
     @EmbeddedId
     private PaletteColorKey id;
 
-    // TODO узнать про @MapsId  и можно ли от нее избавится
     @JsonIgnore
     @ManyToOne
     @MapsId("paletteId")
     @JoinColumn(name = "palette_id")
     private Palette palette;
 
-//    @JsonIgnore
     @ManyToOne
     @MapsId("colorId")
     @JoinColumn(name = "color_id")
