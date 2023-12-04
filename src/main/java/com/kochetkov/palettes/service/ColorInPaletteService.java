@@ -8,6 +8,7 @@ import com.kochetkov.palettes.repository.ColorInPaletteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,19 @@ public class ColorInPaletteService {
         }
         ColorInPaletteRepository.delete(ColorInPalette.get());
         return true;
+    }
+
+    public List<ColorInPaletteDTO> generate(List<ColorInPaletteDTO> colorInPaletteDTOS, String scheme) {
+
+        //TODO Сделать нормальную логику, это затычка
+        List<ColorInPaletteDTO> list = new ArrayList<ColorInPaletteDTO>();
+        for (int i = 0;  i < 8; i++) {
+            ColorInPaletteDTO dto = new ColorInPaletteDTO();
+            dto.setColorRole("role");
+            dto.setHex(String.valueOf(i) + "5" + i + "5" + i +"5");
+            list.add(dto);
+        }
+        return list;
     }
 
     //TODO Возможно тут надо отлавливать если пытаешься удалить связанные обьекты
