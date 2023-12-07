@@ -11,15 +11,18 @@ public enum Role {
     USER(new HashSet<Permission>(){{
         add((Permission.WATCH_PALETTES));
         add((Permission.CREATE_PALETTES));
+        add((Permission.GENERATE_PALETTES));
     }}),
     EDITOR(new HashSet<Permission>(){{
         add((Permission.WATCH_PALETTES));
         add((Permission.CREATE_PALETTES));
+        add((Permission.GENERATE_PALETTES));
         add((Permission.CREATE_COLLECTIONS));
     }}),
     ADMIN(new HashSet<Permission>(){{
         add((Permission.WATCH_PALETTES));
         add((Permission.CREATE_PALETTES));
+        add((Permission.GENERATE_PALETTES));
         add((Permission.CREATE_COLLECTIONS));
     }});
 

@@ -7,6 +7,7 @@ import com.kochetkov.palettes.exeption.ResourceNotFoundException;
 import com.kochetkov.palettes.mapper.ColorInPaletteMapper;
 import com.kochetkov.palettes.repository.ColorInPaletteRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -48,6 +49,7 @@ public class ColorInPaletteService {
         return true;
     }
 
+    @PreAuthorize("hasAuthority('palette:generate')")
     public List<ColorInPaletteDTO> generate(List<ColorInPaletteDTO> colorInPaletteDTOS, String scheme) {
         return colorGeneratorService.generate(colorInPaletteDTOS, scheme);
     }
