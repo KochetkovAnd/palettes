@@ -1,6 +1,7 @@
 package com.kochetkov.palettes.service;
 
 import com.kochetkov.palettes.DTO.ColorInPaletteDTO;
+import com.kochetkov.palettes.colorGenerator.ColorGeneratorService;
 import com.kochetkov.palettes.domain.ColorInPalette;
 import com.kochetkov.palettes.exeption.ResourceNotFoundException;
 import com.kochetkov.palettes.mapper.ColorInPaletteMapper;
@@ -17,6 +18,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ColorInPaletteService {
     private final ColorInPaletteRepository ColorInPaletteRepository;
+    private final ColorGeneratorService colorGeneratorService;
 
     private List<ColorInPaletteDTO> getAll() {
         return allToDTO(ColorInPaletteRepository.findAll());
@@ -47,16 +49,7 @@ public class ColorInPaletteService {
     }
 
     public List<ColorInPaletteDTO> generate(List<ColorInPaletteDTO> colorInPaletteDTOS, String scheme) {
-
-        //TODO Сделать нормальную логику, это затычка
-        List<ColorInPaletteDTO> list = new ArrayList<ColorInPaletteDTO>();
-        for (int i = 0;  i < 8; i++) {
-            ColorInPaletteDTO dto = new ColorInPaletteDTO();
-            dto.setColorRole("role");
-            dto.setHex(String.valueOf(i) + "5" + i + "5" + i +"5");
-            list.add(dto);
-        }
-        return list;
+        return colorGeneratorService.generate(colorInPaletteDTOS, scheme);
     }
 
     //TODO Возможно тут надо отлавливать если пытаешься удалить связанные обьекты
