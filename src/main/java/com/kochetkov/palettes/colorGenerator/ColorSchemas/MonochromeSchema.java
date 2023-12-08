@@ -11,31 +11,12 @@ import java.util.Random;
 public class MonochromeSchema implements ColorSchema {
 
     private final float randomPart = 0.2f;
-    private final int n = 5;
+    private final int N = 5;
     private final Random random = new Random();
-    public List<ColorInPaletteDTO> generateOnColor(Color color, int n) {
-        float[] hsbBase = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
-        List<ColorInPaletteDTO> list = new ArrayList<>();
-        for (int i = n; i > 0; i--) {
-            float hueVariation = (random.nextFloat() - 0.5f) * randomPart;
-            float saturationVariation = (random.nextFloat() - 0.5f) * randomPart;
-
-            float hue = clipHue(hsbBase[0] + hueVariation);
-            float saturation = clip(hsbBase[1] + saturationVariation);
-            float brightness = (float) i / n;
-
-            ColorInPaletteDTO dto = new ColorInPaletteDTO();
-            dto.setColorRole("");
-            dto.setHex(RGBtoHEX(new Color(Color.HSBtoRGB(hue, saturation, brightness))));
-            list.add(dto);
-        }
-        return list;
-    }
-
     @Override
     public List<ColorInPaletteDTO> insertMissing(List<ColorInPaletteDTO> colorInPaletteDTOList) {
         if (colorInPaletteDTOList.isEmpty()) {
-            return generateOnColor(generateRandomColor(), n);
+            return generateOnColor(generateRandomColor(), N);
         } else {
             int index = -1;
             Color color = generateRandomColor();
@@ -56,6 +37,25 @@ public class MonochromeSchema implements ColorSchema {
             }
             return list;
         }
+    }
+
+    public List<ColorInPaletteDTO> generateOnColor(Color color, int n) {
+        float[] hsbBase = Color.RGBtoHSB(color.getRed(), color.getGreen(), color.getBlue(), null);
+        List<ColorInPaletteDTO> list = new ArrayList<>();
+        for (int i = n; i > 0; i--) {
+            float hueVariation = (random.nextFloat() - 0.5f) * randomPart;
+            float saturationVariation = (random.nextFloat() - 0.5f) * randomPart;
+
+            float hue = clipHue(hsbBase[0] + hueVariation);
+            float saturation = clip(hsbBase[1] + saturationVariation);
+            float brightness = (float) i / n;
+
+            ColorInPaletteDTO dto = new ColorInPaletteDTO();
+            dto.setColorRole("");
+            dto.setHex(RGBtoHEX(new Color(Color.HSBtoRGB(hue, saturation, brightness))));
+            list.add(dto);
+        }
+        return list;
     }
 
     private Color HEXtoRGB(String hex) {
