@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +20,9 @@ public class PaletteService {
 
     private final PaletteRepository paletteRepository;
 
+
     private final UserService userService;
+    private final ColorInPaletteService colorInPaletteService;
 
     private List<PaletteDTO> getAll() {
         return allToDTO(paletteRepository.findAll());
@@ -69,7 +72,15 @@ public class PaletteService {
         return allToDTO(paletteRepository.getAllByIsPrivate(false));
     }
 
-
+    public PaletteDTO createNew(PaletteDTO paletteDTO) {
+        if (!paletteRepository.findByName(paletteDTO.getName()).isPresent()) {
+            paletteDTO.setCreator(userService.getCurrentUser());
+            colorInPaletteService.createAll(paletteDTO.getColorInPalettes());
+            paletteRepository.save(toEntity(paletteDTO));
+            return toDTO(paletteRepository.findByName(paletteDTO.getName()).get());
+        }
+        throw new AlreadyExistException("Palette with name = " + paletteDTO.getName() + " already exist", "");
+    }
 
 
     //TODO Возможно тут надо отлавливать если пытаешься удалить связанные обьекты

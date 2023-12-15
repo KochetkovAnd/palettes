@@ -54,6 +54,10 @@ public class ColorInPaletteService {
         return colorGeneratorService.generate(colorInPaletteDTOS, scheme);
     }
 
+    public void createAll(List<ColorInPalette> colorInPalettes) {
+        ColorInPaletteRepository.saveAll(colorInPalettes);
+    }
+
     //TODO Возможно тут надо отлавливать если пытаешься удалить связанные обьекты
 
     private ColorInPalette toEntity(ColorInPaletteDTO ColorInPaletteDTO) {

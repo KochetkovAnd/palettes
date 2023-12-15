@@ -17,7 +17,7 @@ import java.util.Optional;
 public class TagService {
     private final TagRepository tagRepository;
 
-    private List<TagDTO> getAll() {
+    public List<TagDTO> getAll() {
         return allToDTO(tagRepository.findAll());
     }
 

@@ -3,9 +3,7 @@ package com.kochetkov.palettes.controller;
 import com.kochetkov.palettes.DTO.PaletteDTO;
 import com.kochetkov.palettes.service.PaletteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class PaletteController {
     @GetMapping("/available_palettes")
     public List<PaletteDTO> getAllAvailablePalettes() {
         return paletteService.getAllAvailablePalettes();
+    }
+
+    @PostMapping ("/create")
+    public  PaletteDTO create(@RequestBody PaletteDTO paletteDTO) {
+        return paletteService.createNew(paletteDTO);
     }
 }
