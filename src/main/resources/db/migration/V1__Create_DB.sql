@@ -53,7 +53,7 @@ create table users
 alter table collection
     add constraint FK7i2aessmnolwpwfh6f135gudb foreign key (editor_id) references users;
 alter table palette
-    add constraint FKtpuqkuej514y68a071wtrwxr2 foreign key (creator_id) references users;
+        add constraint FKtpuqkuej514y68a071wtrwxr2 foreign key (creator_id) references users;
 alter table palette
     add constraint FKenecknf3wyke36a3nlq9jp57n foreign key (collection_id) references collection;
 alter table palette_color

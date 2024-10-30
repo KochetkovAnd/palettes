@@ -1,5 +1,5 @@
 INSERT INTO public.users (role, username, password)
-VALUES  ('USER', 'drdsky', '$2a$12$EyFRrVXhm1X1negc7bRCi.nnim89uR/xYUhx.r7K4B6dqT9fwqBsa'),
+VALUES  ('USER', 'drdsky', '$2a$12$stDpwol/KVuCHHjRVanHteLEeBJOfEZRkx/LJKwlNMMlxx0s6EOry'),
         ('USER', 'Lizard', '$2a$12$c8bvsIA4srll384HQZol4.T1366kF9HlItuvJ.eHR28ZotcaFwGnS'),
         ('USER', 'Daniel Esprit', '$2a$12$sbzacWjNMcjw7/i4Y81UnO0xPHEhYqUWBbeNfGA/d.YwxdAniuId6'),
         ('EDITOR', 'EasyMeow', '$2a$12$pamCugMpGumPhsY9sCzPm.wAiwq9CE8MKqk0sBg93/iecr.ihknGG'),

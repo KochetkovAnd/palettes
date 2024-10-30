@@ -6,7 +6,7 @@ import lombok.Data;
 
 @Data
 public class ColorInPaletteDTO {
-    private long id;
+    private Long id;
     private String hex;
     private String colorRole;
 }
