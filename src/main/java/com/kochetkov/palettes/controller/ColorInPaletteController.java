@@ -7,7 +7,9 @@ import com.kochetkov.palettes.service.PaletteService;
 import com.kochetkov.palettes.service.pythonModel.PythonModelService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -26,5 +28,10 @@ public class ColorInPaletteController {
     @GetMapping("/generate-by-model")
     public List<ColorInPaletteDTO> generateByModel() {
         return this.pythonModelService.getModelGeneratedColors();
+    }
+
+    @PostMapping("/generate-by-picture")
+    public List<String> generateByPicture(@RequestParam("file") MultipartFile file) throws IOException {
+        return this.pythonModelService.getPictureGeneratedColors(file);
     }
 }
